@@ -9,6 +9,8 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public class SQLiteDialect extends Dialect {
 
+    private static final String ADD_COLUMN_QUERY = "add column";
+
     public SQLiteDialect() {
         registerColumnType(BIT, "integer");
         registerColumnType(TINYINT, "tinyint");
@@ -62,5 +64,10 @@ public class SQLiteDialect extends Dialect {
     @Override
     public String getAddPrimaryKeyConstraintString(String constraintName) {
         return EMPTY;
+    }
+
+    @Override
+    public String getAddColumnString() {
+        return ADD_COLUMN_QUERY;
     }
 }
