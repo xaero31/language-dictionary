@@ -1,4 +1,4 @@
-package com.xaero.dictionary.config.identity;
+package com.xaero.dictionary.config.db;
 
 import org.hibernate.MappingException;
 import org.hibernate.dialect.identity.IdentityColumnSupportImpl;

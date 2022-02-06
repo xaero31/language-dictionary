@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <th:block th:replace="block/fragments.html :: bootstrap-css"/>
+    <th:block th:replace="block/fragments.html :: fragments-css"/>
+
+    <title>Dictionary add word page</title>
+</head>
+
+<body>
+<th:block th:replace="block/fragments.html :: bootstrap-js"/>
+<th:block th:replace="block/fragments.html :: dc-header"/>
+
+<form action="/addWord" th:action="@{/addWord}" th:object="${word}" method="POST">
+    <div>
+        <label th:text="'Native word'">Native word</label>
+        <input type="text" th:field="*{nativeWord}"/>
+        <p style="color: red"
+           th:each="error : ${#fields.errors('nativeWord')}"
+           th:text="${error}"></p>
+    </div>
+    <div>
+        <label th:text="'Translated word'">Translated word</label>
+        <input type="text" th:field="*{translatedWord}"/>
+    </div>
+    <button type="submit" th:text="'Save'">Save</button>
+</form>
+
+<p style="color: red" th:if="${error != null}" th:text="${error}"></p>
+
+<footer>
+    <h1>this is footer</h1>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <th:block th:replace="block/fragments.html :: bootstrap-css"/>
+    <th:block th:replace="block/fragments.html :: fragments-css"/>
+
+    <title>Dictionary all words page</title>
+</head>
+
+<body>
+<th:block th:replace="block/fragments.html :: bootstrap-js"/>
+<th:block th:replace="block/fragments.html :: dc-header"/>
+
+<div style="display: flex; align-content: flex-start;flex-wrap: wrap">
+    <div class="card border-primary mb-3" style="width: 25%" th:each="word : ${page.content}">
+        <div class="card-header" th:text="${word.nativeWord}">Header</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title" th:text="${word.translatedWord}">Primary card title</h5>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <h1>this is footer</h1>
+</footer>
+</body>
+
+</html>

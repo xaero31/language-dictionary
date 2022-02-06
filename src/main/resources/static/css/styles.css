@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    margin-top: auto;
+}
+
+.link {
+    text-decoration: none;
+    font-size: larger;
+}
+.link:visited {
+    color: white;
+}
+.link:hover {
+    color: lightblue;
+    background-color: lightgreen;
+}

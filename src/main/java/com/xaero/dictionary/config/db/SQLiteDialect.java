@@ -1,6 +1,5 @@
-package com.xaero.dictionary.config.dialect;
+package com.xaero.dictionary.config.db;
 
-import com.xaero.dictionary.config.identity.SQLiteIdentityColumnSupport;
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.identity.IdentityColumnSupport;
 

@@ -1,4 +1,4 @@
-package com.xaero.dictionary.config.application;
+package com.xaero.dictionary.config.db;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
