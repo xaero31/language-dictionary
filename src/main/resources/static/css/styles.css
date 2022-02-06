@@ -8,18 +8,87 @@ html, body {
     display: flex;
     flex-direction: column;
 }
+
 footer {
+    height: 50px;
     margin-top: auto;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
+}
+
+.header_button_block {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25%;
+    padding-right: 25%;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header_button_block a {
+    display: block;
+    width: 20%;
+}
+
+.save-word-form {
+    width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.save-word-form div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.save-word-form button {
+    width: 20%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .link {
     text-decoration: none;
     font-size: larger;
 }
+
 .link:visited {
     color: white;
 }
+
 .link:hover {
     color: lightblue;
     background-color: lightgreen;
+}
+
+.dc-footer-info {
+    width: 75%;
+    padding-left: 30px;
+    line-height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.dc-footer-shutdown {
+    width: 25%;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+
+.dc-footer-shutdown a {
+    display: block;
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import static java.lang.String.format;
+import static java.text.MessageFormat.format;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -31,11 +31,20 @@ public class AddWordController {
 
     @RequestMapping(path = "/addWord", method = POST)
     public String addWord(@ModelAttribute WordEntity word, RedirectAttributes attributes) {
-        if (!repository.findByNativeWord(word.getNativeWord()).isPresent()) {
-            repository.save(word);
-        } else {
+        try {
+            if (!repository.findByNativeWord(word.getNativeWord()).isPresent()) {
+                repository.save(word);
+                attributes.addFlashAttribute("success",
+                        format("The [{0}] word saved to dictionary", word.getNativeWord()));
+            } else {
+                attributes.addFlashAttribute("error",
+                        format("The [{0}] word already exists in dictionary", word.getNativeWord()));
+            }
+        } catch (Exception e) {
+            log.error("saving '{}' word error: {}", word, e);
             attributes.addFlashAttribute("error",
-                    format("word '%s' already exists in dictionary", word.getNativeWord()));
+                    format("Got tech error while adding the [{0}] word - [{1}:{2}]",
+                            word.getNativeWord(), e.getClass().getName(), e.getMessage()));
         }
 
         return "redirect:addWord";

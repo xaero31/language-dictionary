@@ -17,11 +17,24 @@
 </div>
 
 <div th:fragment="dc-header">
-    <div class="button_block">
-        <a href="#" th:href="@{/allWords}" class="badge rounded-pill bg-success link">Look all words</a>
-        <a href="google.com" class="badge rounded-pill bg-success link">Test</a>
-        <a href="#" th:href="@{/addWord}" class="badge rounded-pill bg-success link">Add word</a>
-        <a href="google.com" class="badge rounded-pill bg-success link">Translate</a>
+    <div class="header_button_block">
+        <a href="#" th:href="@{/allWords}" th:text="'Look all words'" class="badge rounded-pill bg-success link"></a>
+        <a href="google.com" th:text="'Test'" class="badge rounded-pill bg-success link"></a>
+        <a href="#" th:href="@{/addWord}" th:text="'Add word'" class="badge rounded-pill bg-success link"></a>
+        <a href="google.com" th:text="'Translate'" class="badge rounded-pill bg-success link"></a>
     </div>
 </div>
+
+<dic th:fragment="dc-result">
+    <p style="color: red" th:if="${error != null}" th:text="${error}"></p>
+    <p style="color: green" th:if="${success != null}" th:text="${success}"></p>
+</dic>
+
+<footer th:fragment="dc-footer">
+    <div class="dc-footer-info" th:text="'The Dictionary Application for home using. xaero dev 2022.'"></div>
+    <div class="dc-footer-shutdown">
+        <a href="#" th:href="@{/shutdown}" class="badge rounded-pill bg-success link" th:text="'Shutdown'"></a>
+    </div>
+</footer>
+
 </html>
