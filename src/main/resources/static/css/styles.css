@@ -10,11 +10,25 @@ html, body {
 }
 
 footer {
-    height: 50px;
     margin-top: auto;
-    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+}
+
+.dc-pagination {
+    height: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dc-pagination-item {
+    margin-bottom: 0px;
 }
 
 .header_button_block {
@@ -68,6 +82,13 @@ footer {
 .link:hover {
     color: lightblue;
     background-color: lightgreen;
+}
+
+.dc-footer-info-container {
+    height: 50px;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
 }
 
 .dc-footer-info {

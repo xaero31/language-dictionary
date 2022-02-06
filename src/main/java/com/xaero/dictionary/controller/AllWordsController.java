@@ -12,7 +12,7 @@ import static org.springframework.data.domain.PageRequest.of;
 public class AllWordsController {
 
     private static final int FIRST_PAGE = 0;
-    private static final int PAGE_SIZE = 24;
+    private static final int PAGE_SIZE = 20;
 
     private final WordRepository repository;
 
@@ -21,8 +21,8 @@ public class AllWordsController {
     }
 
     @RequestMapping("/allWords")
-    public String allWords(Model model) {
-        return allWords(FIRST_PAGE, model);
+    public String allWords() {
+        return "redirect:/allWords/" + FIRST_PAGE;
     }
 
     @RequestMapping("/allWords/{pageNumber}")
