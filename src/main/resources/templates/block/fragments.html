@@ -51,7 +51,7 @@
                          rightPage=${page.totalPages - 1 > page.number + 5 ? page.number + 5 : page.totalPages - 1}"
             class="pagination dc-pagination-item">
             <li th:if="${leftPage > 0}" class="page-item">
-                <a class="page-link" th:text="'1'" th:href="${'./' + '1'}" href="#"></a>
+                <a class="page-link" th:text="'1'" th:href="${'./' + '0'}" href="#"></a>
             </li>
             <li th:if="${leftPage > 1}" class="page-item disabled">
                 <a class="page-link" th:text="'...'" href="#"></a>
@@ -60,11 +60,11 @@
                 th:class="${i == page.number ? 'page-item active' : 'page-item'}" class="page-item">
                 <a class="page-link" th:text="${i + 1}" th:href="${'./' + i}" href="#"></a>
             </li>
-            <li th:if="${rightPage < (page.totalPages - 3)}" class="page-item disabled">
+            <li th:if="${rightPage < (page.totalPages - 2)}" class="page-item disabled">
                 <a class="page-link" th:text="'...'" href="#"></a>
             </li>
-            <li th:if="${rightPage < (page.totalPages - 2)}" class="page-item">
-                <a class="page-link" th:text="${page.totalPages - 1}" th:href="${'./' + (page.totalPages - 1)}"
+            <li th:if="${rightPage < (page.totalPages - 1)}" class="page-item">
+                <a class="page-link" th:text="${page.totalPages}" th:href="${'./' + (page.totalPages - 1)}"
                    href="#"></a>
             </li>
         </ul>
