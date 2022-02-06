@@ -16,6 +16,8 @@
             crossorigin="anonymous"></script>
 </div>
 
+<title th:fragment="dc-title" th:text="${title} ?: 'Dictionary title page'"></title>
+
 <div th:fragment="dc-header">
     <div class="header_button_block">
         <a href="#" th:href="@{/allWords}" th:text="'Look all words'" class="badge rounded-pill bg-success link"></a>

@@ -27,6 +27,7 @@ public class AllWordsController {
 
     @RequestMapping("/allWords/{pageNumber}")
     public String allWords(@PathVariable int pageNumber, Model model) {
+        model.addAttribute("title", "Dictionary all words page");
         model.addAttribute("page", repository.findAll(of(pageNumber, PAGE_SIZE)));
         return "all-words";
     }

@@ -25,6 +25,7 @@ public class AddWordController {
 
     @RequestMapping(path = "/addWord", method = GET)
     public String addWord(Model model) {
+        model.addAttribute("title", "Dictionary add word page");
         model.addAttribute("word", new WordEntity());
         return "add-word";
     }
