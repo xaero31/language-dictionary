@@ -15,6 +15,17 @@ footer {
     flex-direction: column;
 }
 
+.dc-all-words-container {
+    display: flex; 
+    align-content: flex-start;
+    flex-wrap: wrap; 
+    padding: 10px;
+}
+
+.dc-all-words-container > div {
+    width: 25%;
+}
+
 .dc-pagination {
     height: fit-content;
     padding-top: 5px;
