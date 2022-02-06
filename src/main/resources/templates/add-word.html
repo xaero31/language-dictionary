@@ -15,20 +15,20 @@
 <th:block th:replace="block/fragments.html :: bootstrap-js"/>
 <th:block th:replace="block/fragments.html :: dc-header"/>
 
-<form action="/addWord" class="save-word-form" th:action="@{/addWord}" th:object="${word}" method="POST">
+<form action="/addWord" class="save-word-form" th:action="@{/addWord}" th:object="${wordEntity}" method="POST">
     <div class="input-group input-group-lg">
         <span class="input-group-text" id="nativeWord" th:text="'Native word'"></span>
-        <input type="text" class="form-control" aria-label="Sizing example input"
-               aria-describedby="inputGroup-sizing-lg" th:field="*{nativeWord}">
+        <input oninput="this.value=this.value.toLowerCase()" type="text" class="form-control"
+               aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" th:field="*{nativeWord}">
     </div>
     <div class="input-group input-group-lg">
         <span class="input-group-text" id="translatedWord" th:text="'Translated word'"></span>
-        <input type="text" class="form-control" aria-label="Sizing example input"
-               aria-describedby="inputGroup-sizing-lg" th:field="*{translatedWord}">
+        <input oninput="this.value=this.value.toLowerCase()" type="text" class="form-control"
+               aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" th:field="*{translatedWord}">
     </div>
     <button class="btn btn-primary" type="submit" th:text="'Save'"></button>
 
-    <p style="color: red" th:each="error : ${#fields.errors('nativeWord')}" th:text="${error}"></p>
+    <p style="color: red" th:each="validateError : ${#fields.allErrors()}" th:text="${validateError}"></p>
     <th:block th:replace="block/fragments.html :: dc-result"/>
 </form>
 
