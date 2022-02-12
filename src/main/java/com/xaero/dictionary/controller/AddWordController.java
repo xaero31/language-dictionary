@@ -2,6 +2,7 @@ package com.xaero.dictionary.controller;
 
 import com.xaero.dictionary.entity.WordEntity;
 import com.xaero.dictionary.repository.WordRepository;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +18,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Slf4j
+@AllArgsConstructor
 @Controller
 public class AddWordController {
 
     private static final String PAGE_TITLE = "Dictionary add word page";
 
     private final WordRepository repository;
-
-    public AddWordController(WordRepository repository) {
-        this.repository = repository;
-    }
 
     @RequestMapping(path = "/addWord", method = GET)
     public String addWord(Model model) {

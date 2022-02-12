@@ -1,6 +1,7 @@
 package com.xaero.dictionary.controller;
 
 import com.xaero.dictionary.repository.WordRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import static org.springframework.data.domain.PageRequest.of;
 
+@AllArgsConstructor
 @Controller
 public class AllWordsController {
 
@@ -15,10 +17,6 @@ public class AllWordsController {
     private static final int PAGE_SIZE = 20;
 
     private final WordRepository repository;
-
-    public AllWordsController(WordRepository repository) {
-        this.repository = repository;
-    }
 
     @RequestMapping("/allWords")
     public String allWords() {
