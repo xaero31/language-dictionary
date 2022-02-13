@@ -17,9 +17,9 @@
 
 <div class="dc-all-words-container">
     <div class="card border-primary mb-3" th:each="word : ${page.content}">
-        <div class="card-header" th:text="${word.nativeWord}">Header</div>
+        <div class="card-header" th:text="${word.nativeWord}"></div>
         <div class="card-body text-primary">
-            <h5 class="card-title" th:text="${word.translatedWord}">Primary card title</h5>
+            <h5 class="card-title" th:text="${word.translatedWord}"></h5>
         </div>
     </div>
 </div>

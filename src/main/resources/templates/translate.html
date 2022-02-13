@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <th:block th:replace="block/fragments.html :: bootstrap-css"/>
+    <th:block th:replace="block/fragments.html :: fragments-css"/>
+    <th:block th:replace="block/fragments.html :: dc-title"/>
+</head>
+
+<body>
+
+<th:block th:replace="block/fragments.html :: bootstrap-js"/>
+<th:block th:replace="block/fragments.html :: dc-header"/>
+
+<form class="dc-translate-word-form" th:action="@{/translateWord}" th:object="${translateForm}" method="POST">
+    <div class="input-group input-group-lg dc-translate-word-form-input">
+        <span class="input-group-text" id="word" th:text="'Word'"></span>
+        <input class="form-control" oninput="this.value=this.value.toLowerCase()" type="text"
+               aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" th:field="*{word}">
+    </div>
+    <div class="card dc-translated-card" th:each="word : ${result}">
+        <div class="card-body" th:text="${word.nativeWord + ' - ' + word.translatedWord}"></div>
+    </div>
+    <div class="card dc-translated-card"
+         th:if="${result == null && translateForm.word != null && !translateForm.word.trim().isEmpty()}">
+        <div class="card-body" th:text="${translateForm.word + ' not found'}"></div>
+    </div>
+    <button class="btn btn-primary" type="submit" th:text="'Translate'"></button>
+
+    <th:block th:replace="block/fragments.html :: dc-result"/>
+</form>
+
+<th:block th:replace="block/fragments.html :: dc-footer"/>
+
+</body>
+
+</html>

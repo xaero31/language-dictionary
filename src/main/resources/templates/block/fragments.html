@@ -23,7 +23,7 @@
         <a href="#" th:href="@{/allWords}" th:text="'All words'" class="badge rounded-pill bg-success link"></a>
         <a href="#" th:href="@{/testWords}" th:text="'Test'" class="badge rounded-pill bg-success link"></a>
         <a href="#" th:href="@{/addWord}" th:text="'Add word'" class="badge rounded-pill bg-success link"></a>
-        <a href="google.com" th:text="'Translate'" class="badge rounded-pill bg-success link"></a>
+        <a href="#" th:href="@{/translateWord}" th:text="'Translate'" class="badge rounded-pill bg-success link"></a>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
     <th:block th:replace="block/fragments.html :: dc-footer-info"/>
 </footer>
 
-<div th:fragment="dc-pagination" th:if="${page != null}" class="dc-pagination">
+<div class="dc-pagination" th:fragment="dc-pagination" th:if="${page != null}">
     <nav aria-label="Page navigation example">
         <ul class="pagination dc-pagination-item">
             <li class="page-item" th:class="'page-item' + ${page.hasPrevious() ? '' : ' disabled'}">
@@ -47,25 +47,24 @@
     </nav>
 
     <nav aria-label="Page navigation example">
-        <ul th:with="leftPage=${page.number - 5 < 0 ? 0 : page.number - 5},
-                         rightPage=${page.totalPages - 1 > page.number + 5 ? page.number + 5 : page.totalPages - 1}"
-            class="pagination dc-pagination-item">
-            <li th:if="${leftPage > 0}" class="page-item">
-                <a class="page-link" th:text="'1'" th:href="${'./' + '0'}" href="#"></a>
+        <ul class="pagination dc-pagination-item" th:with="leftPage=${page.number - 5 < 0 ? 0 : page.number - 5},
+                         rightPage=${page.totalPages - 1 > page.number + 5 ? page.number + 5 : page.totalPages - 1}">
+            <li class="page-item" th:if="${leftPage > 0}">
+                <a class="page-link" href="#" th:text="'1'" th:href="${'./' + '0'}"></a>
             </li>
-            <li th:if="${leftPage > 1}" class="page-item disabled">
-                <a class="page-link" th:text="'...'" href="#"></a>
+            <li class="page-item disabled" th:if="${leftPage > 1}">
+                <a class="page-link" href="#" th:text="'...'"></a>
             </li>
-            <li th:each="i : ${#numbers.sequence(leftPage, rightPage)}"
-                th:class="${i == page.number ? 'page-item active' : 'page-item'}" class="page-item">
-                <a class="page-link" th:text="${i + 1}" th:href="${'./' + i}" href="#"></a>
+            <li class="page-item" th:each="i : ${#numbers.sequence(leftPage, rightPage)}"
+                th:class="${i == page.number ? 'page-item active' : 'page-item'}">
+                <a class="page-link" href="#" th:text="${i + 1}" th:href="${'./' + i}"></a>
             </li>
-            <li th:if="${rightPage < (page.totalPages - 2)}" class="page-item disabled">
-                <a class="page-link" th:text="'...'" href="#"></a>
+            <li class="page-item disabled" th:if="${rightPage < (page.totalPages - 2)}">
+                <a class="page-link" href="#" th:text="'...'"></a>
             </li>
-            <li th:if="${rightPage < (page.totalPages - 1)}" class="page-item">
-                <a class="page-link" th:text="${page.totalPages}" th:href="${'./' + (page.totalPages - 1)}"
-                   href="#"></a>
+            <li class="page-item" th:if="${rightPage < (page.totalPages - 1)}">
+                <a class="page-link" href="#" th:text="${page.totalPages}"
+                   th:href="${'./' + (page.totalPages - 1)}"></a>
             </li>
         </ul>
     </nav>
@@ -82,7 +81,7 @@
 <div th:fragment="dc-footer-info" class="dc-footer-info-container">
     <div class="dc-footer-info" th:text="'The Dictionary Application for home using. xaero dev 2022.'"></div>
     <div class="dc-footer-shutdown">
-        <a href="#" th:href="@{/shutdown}" class="badge rounded-pill bg-success link" th:text="'Shutdown'"></a>
+        <a class="badge rounded-pill bg-success link" href="#" th:href="@{/shutdown}" th:text="'Shutdown'"></a>
     </div>
 </div>
 

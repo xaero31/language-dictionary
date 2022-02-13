@@ -62,7 +62,7 @@ footer {
     width: 20%;
 }
 
-.save-word-form {
+.dc-save-word-form {
     width: 100%;
     padding-left: 25%;
     padding-right: 25%;
@@ -72,12 +72,12 @@ footer {
     justify-content: center;
 }
 
-.save-word-form div {
+.dc-save-word-form div {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.save-word-form button {
+.dc-save-word-form button {
     width: 20%;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -173,4 +173,30 @@ footer {
     width: 200px;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.dc-translate-word-form {
+    width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dc-translate-word-form-input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dc-translated-card {
+    width: 100%;
+    margin: 1px 0;
+}
+
+.dc-translate-word-form button {
+    width: 20%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

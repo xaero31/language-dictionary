@@ -22,4 +22,7 @@ public interface WordRepository extends PagingAndSortingRepository<WordEntity, L
     @Query(value = "select translated_word from words where translated_word <> :translatedWord order by random() limit :count",
             nativeQuery = true)
     List<String> findExclusiveTranslatedWords(String translatedWord, int count);
+
+    @Query(value = "select * from words where native_word like %:word% union select * from words where translated_word like %:word%", nativeQuery = true)
+    List<WordEntity> findByNativeWordOrTranslatedWord(String word);
 }
