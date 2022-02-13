@@ -1,5 +1,6 @@
 package com.xaero.dictionary.controller;
 
+import com.xaero.dictionary.repository.LearnedWordRepository;
 import com.xaero.dictionary.repository.WordRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -11,23 +12,24 @@ import static org.springframework.data.domain.PageRequest.of;
 
 @AllArgsConstructor
 @Controller
-public class AllWordsController {
+public class LearnedWordsController {
 
-    private static final String PAGE_TITLE = "Dictionary all words page";
     private static final int FIRST_PAGE = 0;
     private static final int PAGE_SIZE = 20;
 
-    private final WordRepository repository;
+    private final WordRepository wordRepository;
+    private final LearnedWordRepository learnedWordRepository;
 
-    @RequestMapping("/allWords")
+    @RequestMapping("/learnedWords")
     public String allWords() {
-        return "redirect:/allWords/" + FIRST_PAGE;
+        return "redirect:/learnedWords/" + FIRST_PAGE;
     }
 
-    @RequestMapping("/allWords/{pageNumber}")
+    @RequestMapping("/learnedWords/{pageNumber}")
     public String allWords(@PathVariable int pageNumber, Model model) {
-        model.addAttribute("title", PAGE_TITLE);
-        model.addAttribute("page", repository.findAll(of(pageNumber, PAGE_SIZE)));
+        model.addAttribute("title", "Dictionary learned words page");
+        model.addAttribute("page",
+                wordRepository.findAllByIdIn(of(pageNumber, PAGE_SIZE), learnedWordRepository.findAllIds()));
         return "all-words";
     }
 }

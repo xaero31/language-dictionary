@@ -26,6 +26,7 @@ footer {
 .dc-all-words-container {
     display: flex;
     align-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 10px;
 }
@@ -49,7 +50,7 @@ footer {
 
 .header_button_block {
     width: 100%;
-    padding: 15px 25%;
+    padding: 15px 15%;
     background-color: ghostwhite;
     display: flex;
     flex-direction: row;
@@ -59,7 +60,7 @@ footer {
 
 .header_button_block a {
     display: block;
-    width: 20%;
+    width: 12%;
 }
 
 .dc-save-word-form {
@@ -141,6 +142,7 @@ footer {
 }
 
 .dc-test-block {
+    width: 100%;
     padding: 5px 30px;
     display: flex;
     flex-wrap: wrap;

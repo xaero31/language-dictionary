@@ -1,6 +1,7 @@
 package com.xaero.dictionary.controller;
 
 import com.xaero.dictionary.form.TestWordsForm;
+import com.xaero.dictionary.statistic.TestStatisticsAnalyser;
 import com.xaero.dictionary.test.TestWordFormProducer;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,7 @@ public class TestWordsController {
     private static final int ADDITIONAL_VARIANTS_CNT = 4;
 
     private final TestWordFormProducer formProducer;
+    private final TestStatisticsAnalyser statisticsAnalyser;
 
     @GetMapping(path = "/testWords")
     public String testWords(Model model) {
@@ -39,6 +41,7 @@ public class TestWordsController {
                 .values()
                 .forEach(wordItem -> wordItem.setIsCorrect(
                         wordItem.getWord().getTranslatedWord().equals(wordItem.getResult())));
+        statisticsAnalyser.saveTestStatistics(testWordsForm);
 
         return "test-words";
     }

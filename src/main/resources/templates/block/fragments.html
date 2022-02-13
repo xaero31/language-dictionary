@@ -24,6 +24,8 @@
         <a href="#" th:href="@{/testWords}" th:text="'Test'" class="badge rounded-pill bg-success link"></a>
         <a href="#" th:href="@{/addWord}" th:text="'Add word'" class="badge rounded-pill bg-success link"></a>
         <a href="#" th:href="@{/translateWord}" th:text="'Translate'" class="badge rounded-pill bg-success link"></a>
+        <a href="#" th:href="@{/learnedWords}" th:text="'Learned'" class="badge rounded-pill bg-success link"></a>
+        <a href="#" th:href="@{/notLearnedWords}" th:text="'Not learned'" class="badge rounded-pill bg-success link"></a>
     </div>
 </div>
 
@@ -48,7 +50,7 @@
 
     <nav aria-label="Page navigation example">
         <ul class="pagination dc-pagination-item" th:with="leftPage=${page.number - 5 < 0 ? 0 : page.number - 5},
-                         rightPage=${page.totalPages - 1 > page.number + 5 ? page.number + 5 : page.totalPages - 1}">
+            rightPage=${page.totalPages - 1 > page.number + 5 ? page.number + 5 : T(Math).max(0, page.totalPages - 1)}">
             <li class="page-item" th:if="${leftPage > 0}">
                 <a class="page-link" href="#" th:text="'1'" th:href="${'./' + '0'}"></a>
             </li>

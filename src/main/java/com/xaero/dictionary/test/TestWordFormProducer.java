@@ -20,7 +20,7 @@ public class TestWordFormProducer {
 
     public TestWordsForm prepareTestWordForm(int wordsCnt, int variantsCnt) {
         final Map<Long, TestWordsForm.TestWordFormItem> wordsMap = new HashMap<>();
-        final List<WordEntity> words = wordRepository.findRandomWords(wordsCnt);
+        final List<WordEntity> words = wordRepository.findRandomNotLearnedWords(wordsCnt);
 
         words.forEach(word -> addWordItem(word, variantsCnt, wordsMap));
 

@@ -11,23 +11,23 @@ import static org.springframework.data.domain.PageRequest.of;
 
 @AllArgsConstructor
 @Controller
-public class AllWordsController {
+public class NotLearnedWordsController {
 
-    private static final String PAGE_TITLE = "Dictionary all words page";
+    private static final String PAGE_TITLE = "Dictionary not learned words page";
     private static final int FIRST_PAGE = 0;
     private static final int PAGE_SIZE = 20;
 
     private final WordRepository repository;
 
-    @RequestMapping("/allWords")
+    @RequestMapping("/notLearnedWords")
     public String allWords() {
-        return "redirect:/allWords/" + FIRST_PAGE;
+        return "redirect:/notLearnedWords/" + FIRST_PAGE;
     }
 
-    @RequestMapping("/allWords/{pageNumber}")
+    @RequestMapping("/notLearnedWords/{pageNumber}")
     public String allWords(@PathVariable int pageNumber, Model model) {
         model.addAttribute("title", PAGE_TITLE);
-        model.addAttribute("page", repository.findAll(of(pageNumber, PAGE_SIZE)));
+        model.addAttribute("page", repository.findAllNotLearnedWords(of(pageNumber, PAGE_SIZE)));
         return "all-words";
     }
 }
