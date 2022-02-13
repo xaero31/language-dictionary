@@ -21,9 +21,9 @@
             <h4 th:text="${item.word.nativeWord}"></h4>
             <div class="form-check" th:each="variant : ${item.responseVariantList}">
                 <input class="form-check-input" type="radio" th:value="${variant}"
-                       th:field="*{wordMap[__${item.word.id}__].word.translatedWord}">
+                       th:field="*{wordMap[__${item.word.id}__].result}">
                 <label class="form-check-label" th:text="${variant}"
-                       th:for="${#ids.prev('wordMap__${item.word.id}__.word.translatedWord')}"></label>
+                       th:for="${#ids.prev('wordMap__${item.word.id}__.result')}"></label>
             </div>
             <p class="dc-error" th:if="${item.isCorrect != null && !item.isCorrect}" th:text="'Error'"></p>
             <p class="dc-success" th:if="${item.isCorrect != null && item.isCorrect}" th:text="'Success'"></p>

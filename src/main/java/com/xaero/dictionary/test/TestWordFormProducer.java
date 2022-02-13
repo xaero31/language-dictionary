@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Collections.shuffle;
-import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 @AllArgsConstructor
 @Component
@@ -31,10 +30,9 @@ public class TestWordFormProducer {
     private void addWordItem(WordEntity word, int variantsCnt, Map<Long, TestWordsForm.TestWordFormItem> wordsMap) {
         final TestWordsForm.TestWordFormItem item = new TestWordsForm.TestWordFormItem();
 
+        item.setWord(word);
         item.setResponseVariantList(wordRepository.findExclusiveTranslatedWords(word.getTranslatedWord(), variantsCnt));
         item.getResponseVariantList().add(word.getTranslatedWord());
-        item.setWord(word);
-        item.getWord().setTranslatedWord(EMPTY);
 
         shuffle(item.getResponseVariantList());
 

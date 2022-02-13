@@ -2,7 +2,6 @@ package com.xaero.dictionary.controller;
 
 import com.xaero.dictionary.form.TestWordsForm;
 import com.xaero.dictionary.test.TestWordFormProducer;
-import com.xaero.dictionary.validate.TestWordFormValidator;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,6 @@ public class TestWordsController {
     private static final int ADDITIONAL_VARIANTS_CNT = 4;
 
     private final TestWordFormProducer formProducer;
-    private final TestWordFormValidator formValidator;
 
     @GetMapping(path = "/testWords")
     public String testWords(Model model) {
@@ -36,7 +34,12 @@ public class TestWordsController {
     @PostMapping(path = "/testWords")
     public String testWords(@ModelAttribute TestWordsForm testWordsForm, Model model) {
         model.addAttribute("title", PAGE_TITLE);
-        formValidator.fillTestWordFormResult(testWordsForm);
+
+        testWordsForm.getWordMap()
+                .values()
+                .forEach(wordItem -> wordItem.setIsCorrect(
+                        wordItem.getWord().getTranslatedWord().equals(wordItem.getResult())));
+
         return "test-words";
     }
 }

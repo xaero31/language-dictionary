@@ -20,6 +20,7 @@ public class TestWordsForm {
 
         private WordEntity word;
         private List<String> responseVariantList;
+        private String result;
         private Boolean isCorrect;
     }
 }
