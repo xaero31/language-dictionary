@@ -18,4 +18,8 @@ public interface WordRepository extends PagingAndSortingRepository<WordEntity, L
     List<WordEntity> findRandomWords(int count);
 
     Optional<WordEntity> findByNativeWord(String nativeWord);
+
+    @Query(value = "select translated_word from words where translated_word <> :translatedWord order by random() limit :count",
+            nativeQuery = true)
+    List<String> findExclusiveTranslatedWords(String translatedWord, int count);
 }

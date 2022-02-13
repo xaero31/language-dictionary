@@ -21,15 +21,15 @@
 <div th:fragment="dc-header">
     <div class="header_button_block">
         <a href="#" th:href="@{/allWords}" th:text="'All words'" class="badge rounded-pill bg-success link"></a>
-        <a href="google.com" th:text="'Test'" class="badge rounded-pill bg-success link"></a>
+        <a href="#" th:href="@{/testWords}" th:text="'Test'" class="badge rounded-pill bg-success link"></a>
         <a href="#" th:href="@{/addWord}" th:text="'Add word'" class="badge rounded-pill bg-success link"></a>
         <a href="google.com" th:text="'Translate'" class="badge rounded-pill bg-success link"></a>
     </div>
 </div>
 
 <dic th:fragment="dc-result">
-    <p style="color: red" th:if="${error != null}" th:text="${error}"></p>
-    <p style="color: green" th:if="${success != null}" th:text="${success}"></p>
+    <p class="dc-error" th:if="${error != null}" th:text="${error}"></p>
+    <p class="dc-success" th:if="${success != null}" th:text="${success}"></p>
 </dic>
 
 <footer th:fragment="dc-footer">

@@ -15,10 +15,18 @@ footer {
     flex-direction: column;
 }
 
+.dc-error {
+    color: red;
+}
+
+.dc-success {
+    color: green;
+}
+
 .dc-all-words-container {
-    display: flex; 
+    display: flex;
     align-content: flex-start;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     padding: 10px;
 }
 
@@ -28,10 +36,7 @@ footer {
 
 .dc-pagination {
     height: fit-content;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 5px 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,15 +44,12 @@ footer {
 }
 
 .dc-pagination-item {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .header_button_block {
     width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding: 15px 25%;
     background-color: ghostwhite;
     display: flex;
     flex-direction: row;
@@ -123,4 +125,52 @@ footer {
 
 .dc-footer-shutdown a {
     display: block;
+}
+
+.dc-test-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.dc-test-form > button {
+    width: 200px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dc-test-block {
+    padding: 5px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+.dc-test-card {
+    width: 40%;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+}
+
+.dc-test-card > p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.dc-test-refresh {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.dc-test-refresh > button {
+    width: 200px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }

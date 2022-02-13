@@ -28,7 +28,7 @@
     </div>
     <button class="btn btn-primary" type="submit" th:text="'Save'"></button>
 
-    <p style="color: red" th:each="validateError : ${#fields.allErrors()}" th:text="${validateError}"></p>
+    <p class="dc-error" th:each="validateError : ${#fields.allErrors()}" th:text="${validateError}"></p>
     <th:block th:replace="block/fragments.html :: dc-result"/>
 </form>
 
