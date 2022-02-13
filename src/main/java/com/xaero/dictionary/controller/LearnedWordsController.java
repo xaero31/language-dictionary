@@ -21,12 +21,12 @@ public class LearnedWordsController {
     private final LearnedWordRepository learnedWordRepository;
 
     @RequestMapping("/learnedWords")
-    public String allWords() {
+    public String learnedWords() {
         return "redirect:/learnedWords/" + FIRST_PAGE;
     }
 
     @RequestMapping("/learnedWords/{pageNumber}")
-    public String allWords(@PathVariable int pageNumber, Model model) {
+    public String learnedWords(@PathVariable int pageNumber, Model model) {
         model.addAttribute("title", "Dictionary learned words page");
         model.addAttribute("page",
                 wordRepository.findAllByIdIn(of(pageNumber, PAGE_SIZE), learnedWordRepository.findAllIds()));

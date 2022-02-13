@@ -20,12 +20,12 @@ public class NotLearnedWordsController {
     private final WordRepository repository;
 
     @RequestMapping("/notLearnedWords")
-    public String allWords() {
+    public String notLearnedWords() {
         return "redirect:/notLearnedWords/" + FIRST_PAGE;
     }
 
     @RequestMapping("/notLearnedWords/{pageNumber}")
-    public String allWords(@PathVariable int pageNumber, Model model) {
+    public String notLearnedWords(@PathVariable int pageNumber, Model model) {
         model.addAttribute("title", PAGE_TITLE);
         model.addAttribute("page", repository.findAllNotLearnedWords(of(pageNumber, PAGE_SIZE)));
         return "all-words";
