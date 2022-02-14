@@ -18,15 +18,50 @@
 
 <title th:fragment="dc-title" th:text="${title} ?: 'Dictionary title page'"></title>
 
-<div th:fragment="dc-header">
-    <div class="header_button_block">
-        <a href="#" th:href="@{/allWords}" th:text="'All words'" class="badge rounded-pill bg-success link"></a>
-        <a href="#" th:href="@{/testWords}" th:text="'Test'" class="badge rounded-pill bg-success link"></a>
-        <a href="#" th:href="@{/addWord}" th:text="'Add word'" class="badge rounded-pill bg-success link"></a>
-        <a href="#" th:href="@{/translateWord}" th:text="'Translate'" class="badge rounded-pill bg-success link"></a>
-        <a href="#" th:href="@{/learnedWords}" th:text="'Learned'" class="badge rounded-pill bg-success link"></a>
-        <a href="#" th:href="@{/notLearnedWords}" th:text="'Not learned'" class="badge rounded-pill bg-success link"></a>
-    </div>
+<div class="dc-header" th:fragment="dc-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" th:with="path='/allWords'">
+                        <a th:text="'All words'" th:href="@{|${path}|}"
+                           th:class="${#httpServletRequest.getServletPath().startsWith(path) ?
+                           'dc-header-link-current' : 'dc-header-link'}"></a>
+                    </li>
+                    <li class="nav-item dropdown" th:with="unlearned='/testWords',all='#'">
+                        <a href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                           th:text="'Test'" th:class="${#httpServletRequest.getServletPath().startsWith(unlearned) ||
+                           #httpServletRequest.getServletPath().startsWith(all) ?
+                           'dropdown-toggle dc-header-link-current' : 'dropdown-toggle dc-header-link'}"></a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" th:href="@{|${unlearned}|}" th:text="'Test unlearned'"></a></li>
+                            <li><a class="dropdown-item" th:href="@{|${all}|}" th:text="'Test all'"></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" th:with="path='/addWord'">
+                        <a th:href="@{|${path}|}" th:text="'Add word'"
+                           th:class="${#httpServletRequest.getServletPath().startsWith(path) ?
+                           'dc-header-link-current' : 'dc-header-link'}"></a>
+                    </li>
+                    <li class="nav-item" th:with="path='/translateWord'">
+                        <a th:href="@{|${path}|}" th:text="'Translate'"
+                           th:class="${#httpServletRequest.getServletPath().startsWith(path) ?
+                           'dc-header-link-current' : 'dc-header-link'}"></a>
+                    </li>
+                    <li class="nav-item" th:with="path='/learnedWords'">
+                        <a th:href="@{|${path}|}" th:text="'Learned'"
+                           th:class="${#httpServletRequest.getServletPath().startsWith(path) ?
+                           'dc-header-link-current' : 'dc-header-link'}"></a>
+                    </li>
+                    <li class="nav-item" th:with="path='/notLearnedWords'">
+                        <a th:href="@{|${path}|}" th:text="'Not learned'"
+                           th:class="${#httpServletRequest.getServletPath().startsWith(path) ?
+                           'dc-header-link-current' : 'dc-header-link'}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
 
 <dic th:fragment="dc-result">
@@ -82,9 +117,9 @@
 
 <div th:fragment="dc-footer-info" class="dc-footer-info-container">
     <div class="dc-footer-info" th:text="'The Dictionary Application for home using. xaero dev 2022.'"></div>
-    <div class="dc-footer-shutdown">
-        <a class="badge rounded-pill bg-success link" href="#" th:href="@{/shutdown}" th:text="'Shutdown'"></a>
-    </div>
+    <form class="dc-footer-shutdown" th:action="@{/shutdown}" method="GET">
+        <button class="btn btn-primary" type="submit" th:text="'Shutdown'"></button>
+    </form>
 </div>
 
 </html>

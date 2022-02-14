@@ -15,6 +15,37 @@ footer {
     flex-direction: column;
 }
 
+.dc-header {
+    width: 100%;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dc-header-link {
+    color: black;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.dc-header-link:hover {
+    color: limegreen;
+}
+
+.dc-header-link-current {
+    color: black;
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.dc-header-link-current:hover {
+    color: black;
+}
+
 .dc-error {
     color: red;
 }
@@ -48,21 +79,6 @@ footer {
     margin-bottom: 0;
 }
 
-.header_button_block {
-    width: 100%;
-    padding: 15px 15%;
-    background-color: ghostwhite;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.header_button_block a {
-    display: block;
-    width: 12%;
-}
-
 .dc-save-word-form {
     width: 100%;
     padding-left: 25%;
@@ -82,20 +98,6 @@ footer {
     width: 20%;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-.link {
-    text-decoration: none;
-    font-size: larger;
-}
-
-.link:visited {
-    color: white;
-}
-
-.link:hover {
-    color: lightblue;
-    background-color: lightgreen;
 }
 
 .dc-footer-info-container {
